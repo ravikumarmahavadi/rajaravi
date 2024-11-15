@@ -9,7 +9,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 // Clone your repository from GitHub and specify the branch if needed
-                git branch: 'main', url: ''
+                git branch: 'main', url: 'https://github.com/navin-devops/website-spring.git'
             }
         }
 
