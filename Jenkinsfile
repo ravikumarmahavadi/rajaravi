@@ -56,7 +56,7 @@ pipeline {
                         sh '''
                             gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS
                             gcloud config set project $GCP_PROJECT
-                            gcloud config set app/region us-central1  # Set the App Engine region
+                            # Deploy to App Engine (no need to set region)
                             gcloud app deploy --quiet
                         '''
                     }
