@@ -31,15 +31,15 @@ pipeline {
                 script {
                     if (params.ENVIRONMENT == 'dev') {
                         // Set environment variables for dev environment
-                        env.GCP_PROJECT = 'my-gcp-project-dev'
+                        env.GCP_PROJECT = 'gleaming-lead-438006-g4'
                         env.GCP_REGION = 'us-central1'
                     } else if (params.ENVIRONMENT == 'staging') {
                         // Set environment variables for staging environment
-                        env.GCP_PROJECT = 'my-gcp-project-staging'
+                        env.GCP_PROJECT = 'gleaming-lead-438006-g4'
                         env.GCP_REGION = 'us-central1'
                     } else if (params.ENVIRONMENT == 'prod') {
                         // Set environment variables for prod environment
-                        env.GCP_PROJECT = 'my-gcp-project-prod'
+                        env.GCP_PROJECT = 'gleaming-lead-438006-g4'
                         env.GCP_REGION = 'us-central1'
                     }
                     echo "Deploying to ${params.ENVIRONMENT} environment"
@@ -56,7 +56,7 @@ pipeline {
                         sh '''
                             gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS
                             gcloud config set project $GCP_PROJECT
-                            gcloud config set compute/region $GCP_REGION
+                            gcloud config set app/region us-central1  # Set the App Engine region
                             gcloud app deploy --quiet
                         '''
                     }
