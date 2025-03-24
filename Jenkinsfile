@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         GOOGLE_CREDENTIALS = credentials('gcp-service-account') // Reference the ID of your credentials
-    }
+    
 
     parameters {
         choice(name: 'ENVIRONMENT', choices: ['dev', 'staging', 'prod'], description: 'Select the environment to deploy')
